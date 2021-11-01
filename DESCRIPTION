@@ -1,6 +1,6 @@
 Package: geckor
 Title: R Client for the 'CoinGecko' API
-Version: 0.1.1
+Version: 0.2.0
 Authors@R: c(
     person("Sergey", "Mastitsky",
            role = c("aut", "cre"),
@@ -20,13 +20,13 @@ Suggests: covr, markdown, readr, rmarkdown, spelling, testthat (>=
 Config/testthat/edition: 3
 Language: en-US
 Imports: dplyr, jsonlite, httr, knitr, lifecycle, magrittr, rlang,
-        tibble, tidyr, tidyselect
+        tibble, tidyr, tidyselect, curl
 VignetteBuilder: knitr
 RdMacros: lifecycle
 NeedsCompilation: no
-Packaged: 2021-07-12 12:40:21 UTC; masti
+Packaged: 2021-11-01 09:52:46 UTC; masti
 Author: Sergey Mastitsky [aut, cre],
   Next Game Solutions [cph]
 Maintainer: Sergey Mastitsky <sergey@nextgamesolutions.com>
 Repository: CRAN
-Date/Publication: 2021-07-13 14:40:05 UTC
+Date/Publication: 2021-11-01 15:20:02 UTC

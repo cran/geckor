@@ -1,5 +1,6 @@
 ## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(
+  error = TRUE,
   collapse = TRUE,
   comment = "#>"
 )
@@ -99,5 +100,13 @@ coin_history_ohlc(
   coin_id = "bitcoin", 
   vs_currency = "usd",
   days = "max"
+)
+
+## ----coin-history-multiple-coins----------------------------------------------
+coin_history(
+  coin_id = c("bitcoin", "cardano", "polkadot"),
+  vs_currency = "usd",
+  days = 2, 
+  interval = "daily"
 )
 

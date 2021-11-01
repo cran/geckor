@@ -1,10 +1,11 @@
 ## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(
+  error = TRUE,
   collapse = TRUE,
   comment = "#>"
 )
 
-Sys.sleep(60)
+Sys.sleep(60) # to avoid build errors due to API rate limit
 
 ## ----setup--------------------------------------------------------------------
 library(geckor)

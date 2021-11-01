@@ -1,10 +1,22 @@
 test_that("history_snapshot returns correct results", {
+  skip_on_cran()
+  Sys.sleep(10)
+
   r <- coin_history_snapshot(
     coin_id = "cardano",
     date = as.Date("2021-05-01"),
-    vs_currencies = c("usd", "eth"),
-    max_attempts = 1L
+    vs_currencies = c("usd", "eth")
   )
+
+  skip_if(is.null(r), "Data could not be retrieved")
+
+  r2 <- coin_history_snapshot(
+    coin_id = c("bitcoin", "polkadot", "tron"),
+    date = as.Date("2021-05-01"),
+    vs_currencies = c("usd", "eth")
+  )
+
+  skip_if(is.null(r2), "Data could not be retrieved")
 
   expect_s3_class(r, "tbl")
 
@@ -29,4 +41,7 @@ test_that("history_snapshot returns correct results", {
   expect_type(r$price, "double")
   expect_type(r$market_cap, "double")
   expect_type(r$total_volume, "double")
+
+  expect_equal(nrow(r2), 6)
+  expect_setequal(unique(r2$coin_id), c("bitcoin", "polkadot", "tron"))
 })

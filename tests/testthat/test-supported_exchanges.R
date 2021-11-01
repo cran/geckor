@@ -1,7 +1,11 @@
 test_that("supported_exchanges returns correct results", {
-  r <- supported_exchanges(max_attempts = 1)
+  skip_on_cran()
+  Sys.sleep(30)
 
-  Sys.sleep(1)
+  r <- supported_exchanges()
+  skip_if(is.null(r), "Data could not be retrieved")
+
+  Sys.sleep(2)
 
   expect_named(r, c(
     "exchange_id",

@@ -1,9 +1,13 @@
 test_that("current_market returns correct results", {
+  skip_on_cran()
+  Sys.sleep(10)
+
   r <- current_market(
     coin_ids = c("aave", "tron", "bitcoin"),
-    vs_currency = "usd",
-    max_attempts = 1L
+    vs_currency = "usd"
   )
+
+  skip_if(is.null(r), "Data could not be retrieved")
 
   expect_s3_class(r, "tbl")
 

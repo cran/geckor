@@ -1,9 +1,13 @@
 test_that("coin_tickers returns correct results", {
+  skip_on_cran()
+  Sys.sleep(10)
+
   r <- coin_tickers(
     coin_id = "cardano",
-    exchange_id = "binance",
-    max_attempts = 1L
+    exchange_id = "binance"
   )
+
+  skip_if(is.null(r), "Data could not be retrieved")
 
   expect_named(r, c(
     "exchange_id", "exchange_name",

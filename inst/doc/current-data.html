@@ -145,7 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R client for the CoinGecko API</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Developed by Next Game Solutions (http://nextgamesolutions.com)</span></span></code></pre></div>
 <p>The CoinGecko API allows one to query market data on cryptocurrencies in real time. There are several functions in <code>geckor</code> that can be used to collect such data.</p>
-<p>The current prices for a set of cryptocurrencies of interest can be queried with the <code>current_price()</code> function. The two important arguments expected by this function are <code>coin_ids</code> (a character vector with coin IDs; see <code>?supported_coins</code> for details) and <code>vs_currencies</code> (a character vector with abbreviated names of reference currencies, which are used to express the price in; see <code>?supported_currencies</code> for details). In the example below, we are requesting the current prices for Cardano, Tron, and Polkadot, expressed in USD, EUR, and GBP:</p>
+<p>The current prices for a set of cryptocurrencies of interest can be queried with the <code>current_price()</code> function. The two important arguments expected by this function are <code>coin_ids</code> (a character vector with coin IDs; see <code>?supported_coins</code> for details) and <code>vs_currencies</code> (a character vector with abbreviated names of reference currencies, which are used to express the coin price in; see <code>?supported_currencies</code> for details). In the example below, we are requesting the current prices for Cardano, Tron, and Polkadot, expressed in USD, EUR, and GBP:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>prices <span class="ot">&lt;-</span> <span class="fu">current_price</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">coin_ids =</span> <span class="fu">c</span>(<span class="st">&quot;cardano&quot;</span>, <span class="st">&quot;tron&quot;</span>, <span class="st">&quot;polkadot&quot;</span>),</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">vs_currencies =</span> <span class="fu">c</span>(<span class="st">&quot;usd&quot;</span>, <span class="st">&quot;eur&quot;</span>, <span class="st">&quot;gbp&quot;</span>)</span>
@@ -155,15 +155,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 9 x 7</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   coin_id    price vs_currency   market_cap     vol_24h price_percent_change_24h</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt;                    &lt;dbl&gt;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 cardano   1.34   usd         42991971878. 1052770019.                  -0.126 </span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 cardano   1.13   eur         36263943239.  888016775.                   0.0571</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 cardano   0.967  gbp         31043170142.  760172595.                   0.259 </span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 polkadot 15.2    usd         15346431833.  391467103.                  -1.73  </span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 polkadot 12.8    eur         12944791983.  330204459.                  -1.55  </span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 polkadot 11.0    gbp         11081182687.  282666260.                  -1.35  </span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7 tron      0.0615 usd          4412364419.  751789173.                  -0.311 </span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8 tron      0.0519 eur          3722177964.  634137926.                  -0.129 </span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9 tron      0.0444 gbp          3185771234.  542843656.                   0.0730</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 cardano   2      usd         63542311560. 2003905200.                     2.31</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 cardano   1.73   eur         54907102046. 1732065440.                     2.18</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 cardano   1.46   gbp         46524282593. 1466800493.                     2.49</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 polkadot 44.3    usd         45677466802. 1324266979.                     5.92</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 polkadot 38.3    eur         39485201015. 1144623542.                     5.77</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 polkadot 32.4    gbp         33436545184.  969325025.                     6.10</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7 tron      0.102  usd          7235134893. 2252996359.                     1.19</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8 tron      0.0881 eur          6251901766. 1947366138.                     1.05</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9 tron      0.0746 gbp          5297406596. 1649127998.                     1.36</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 1 more variable: last_updated_at &lt;dttm&gt;</span></span></code></pre></div>
 <p>See <code>?current_price</code> for definitions of columns in the resultant tibble.</p>
 <p>The <code>exchange_rate()</code> function can be used to obtain the current exchange rates for any supported reference currency, expressed in Bitcoin. The <code>currency</code> argument of this function specifies the list of currencies of interest. If <code>currency = NULL</code>, data for all supported currencies will be returned:</p>
@@ -172,25 +172,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 x 5</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    timestamp           currency name                        price_in_btc type  </span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;                              &lt;dbl&gt; &lt;chr&gt; </span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 2021-07-12 13:37:47 aed      United Arab Emirates Dirham     123483.  fiat  </span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 2021-07-12 13:37:47 ars      Argentine Peso                 3224280.  fiat  </span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 2021-07-12 13:37:47 aud      Australian Dollar                45048.  fiat  </span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 2021-07-12 13:37:47 bch      Bitcoin Cash                        68.8 crypto</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 2021-07-12 13:37:47 bdt      Bangladeshi Taka               2849855.  fiat  </span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 2021-07-12 13:37:47 bhd      Bahraini Dinar                   12672.  fiat  </span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 2021-07-12 13:37:47 bits     Bits                           1000000   crypto</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 2021-07-12 13:37:47 bmd      Bermudian Dollar                 33617.  fiat  </span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 2021-07-12 13:37:47 bnb      Binance Coin                       104.  crypto</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 2021-07-12 13:37:47 brl      Brazil Real                     176864.  fiat</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 2021-11-01 09:49:51 aed      United Arab Emirates Dirham      228339. fiat  </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 2021-11-01 09:49:51 ars      Argentine Peso                  6197280. fiat  </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 2021-11-01 09:49:51 aud      Australian Dollar                 82814. fiat  </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 2021-11-01 09:49:51 bch      Bitcoin Cash                        105. crypto</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 2021-11-01 09:49:51 bdt      Bangladeshi Taka                5368581. fiat  </span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 2021-11-01 09:49:51 bhd      Bahraini Dinar                    23438. fiat  </span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 2021-11-01 09:49:51 bits     Bits                            1000000  crypto</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 2021-11-01 09:49:51 bmd      Bermudian Dollar                  62168. fiat  </span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 2021-11-01 09:49:51 bnb      Binance Coin                        117. crypto</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 2021-11-01 09:49:51 brl      Brazil Real                      350489. fiat</span></span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>some_rates <span class="ot">&lt;-</span> <span class="fu">exchange_rate</span>(<span class="at">currency =</span> <span class="fu">c</span>(<span class="st">&quot;btc&quot;</span>, <span class="st">&quot;usd&quot;</span>, <span class="st">&quot;rub&quot;</span>))</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>some_rates</span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 x 5</span></span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   timestamp           currency name          price_in_btc type  </span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt; </span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2021-07-12 13:37:48 btc      Bitcoin                 1  crypto</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2021-07-12 13:37:48 rub      Russian Ruble     2508050. fiat  </span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2021-07-12 13:37:48 usd      US Dollar           33617. fiat</span></span></code></pre></div>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2021-11-01 09:49:51 btc      Bitcoin                 1  crypto</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2021-11-01 09:49:51 rub      Russian Ruble     4398435. fiat  </span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2021-11-01 09:49:51 usd      US Dollar           62168. fiat</span></span></code></pre></div>
 <p>The <code>current_market()</code> function retrieves a rich set of data points describing the current market status of the cryptocurrencies of interest. Let’s collect such data for Cardano, Tron, and Polkadot:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">current_market</span>(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">coin_ids =</span> <span class="fu">c</span>(<span class="st">&quot;cardano&quot;</span>, <span class="st">&quot;tron&quot;</span>, <span class="st">&quot;polkadot&quot;</span>),</span>
@@ -204,34 +204,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ symbol                                   &lt;chr&gt; &quot;ada&quot;, &quot;dot&quot;, &quot;trx&quot;</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ name                                     &lt;chr&gt; &quot;Cardano&quot;, &quot;Polkadot&quot;, &quot;TRON&quot;</span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ vs_currency                              &lt;chr&gt; &quot;usd&quot;, &quot;usd&quot;, &quot;usd&quot;</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_updated_at                          &lt;dttm&gt; 2021-07-12 12:37:44, 2021-07-~</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ current_price                            &lt;dbl&gt; 1.340000, 15.200000, 0.061487</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ market_cap                               &lt;dbl&gt; 42991971878, 15346431833, 441~</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ market_cap_rank                          &lt;int&gt; 5, 9, 25</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ fully_diluted_valuation                  &lt;dbl&gt; 60332288548, NA, NA</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ total_volume                             &lt;int&gt; 1052770019, 391467103, 751789~</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ high_24h                                 &lt;dbl&gt; 1.380000, 15.860000, 0.063296</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ low_24h                                  &lt;dbl&gt; 1.340000, 15.150000, 0.061313</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_24h                         &lt;dbl&gt; -0.001685956, -0.266882944, -~</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_24h              &lt;dbl&gt; -0.12573, -1.72590, -0.31144</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ market_cap_change_24h                    &lt;dbl&gt; -5634753, -231134636, -10257~</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ market_cap_change_percentage_24h         &lt;dbl&gt; -0.01310, -1.48377, -0.23193</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ circulating_supply                       &lt;dbl&gt; 32066390668, 1009417005, 7166~</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ total_supply                             &lt;dbl&gt; 45000000000, 1090366138, 1008~</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_updated_at                          &lt;dttm&gt; 2021-11-01 09:49:28, 2021-11-~</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ current_price                            &lt;dbl&gt; 2.000000, 44.330000, 0.101936</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ market_cap                               &lt;dbl&gt; 63542311560, 45677466802, 723~</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ market_cap_rank                          &lt;int&gt; 5, 8, 30</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ fully_diluted_valuation                  &lt;dbl&gt; 89171371039, NA, NA</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ total_volume                             &lt;dbl&gt; 2003905200, 1324266979, 22529~</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ high_24h                                 &lt;dbl&gt; 2.000000, 44.460000, 0.102011</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ low_24h                                  &lt;dbl&gt; 1.92000, 41.33000, 0.09815</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_24h                         &lt;dbl&gt; 0.04525739, 2.48000000, 0.001~</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_24h              &lt;dbl&gt; 2.31414, 5.91567, 1.18962</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ market_cap_change_24h                    &lt;dbl&gt; 628750748, 2106541495, -5246~</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ market_cap_change_percentage_24h         &lt;dbl&gt; 0.99939, 4.83474, -0.07246</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ circulating_supply                       &lt;dbl&gt; 32066390668, 1046004149, 7166~</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ total_supply                             &lt;dbl&gt; 45000000000, 1126954665, 1008~</span></span>
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ max_supply                               &lt;dbl&gt; 4.5e+10, NA, NA</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ ath                                      &lt;dbl&gt; 2.450000, 49.350000, 0.231673</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ ath_change_percentage                    &lt;dbl&gt; -45.27688, -69.16504, -73.455~</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ ath_date                                 &lt;dttm&gt; 2021-05-16 07:44:28, 2021-05-~</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ ath                                      &lt;dbl&gt; 3.090000, 49.350000, 0.231673</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ ath_change_percentage                    &lt;dbl&gt; -35.11797, -10.28816, -56.097~</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ ath_date                                 &lt;dttm&gt; 2021-09-02 06:00:10, 2021-05-~</span></span>
 <span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ atl                                      &lt;dbl&gt; 0.01925275, 2.70000000, 0.001~</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ atl_change_percentage                    &lt;dbl&gt; 6850.9177, 464.1146, 3308.3008</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ atl_change_percentage                    &lt;dbl&gt; 10302.933, 1541.246, 5536.967</span></span>
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ atl_date                                 &lt;dttm&gt; 2020-03-13 02:22:55, 2020-08-~</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_1h_in_currency   &lt;dbl&gt; -0.4281492, -0.1358553, -0.13~</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_24h_in_currency  &lt;dbl&gt; -0.1257338, -1.7259015, -0.31~</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_7d_in_currency   &lt;dbl&gt; -8.064827, -5.198131, -8.8652~</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_14d_in_currency  &lt;dbl&gt; -0.2470793, 1.4718580, -5.333~</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_30d_in_currency  &lt;dbl&gt; -6.826321, -27.829919, -11.24~</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_200d_in_currency &lt;dbl&gt; 867.4255, 220.6740, 145.9176</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_1y_in_currency   &lt;dbl&gt; 967.7327, NA, 234.9683</span></span></code></pre></div>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_1h_in_currency   &lt;dbl&gt; 1.212416, 1.598759, 1.024652</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_24h_in_currency  &lt;dbl&gt; 2.314139, 5.915670, 1.189617</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_7d_in_currency   &lt;dbl&gt; -5.994873, 4.252299, 2.277023</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_14d_in_currency  &lt;dbl&gt; -7.270068, 5.226417, 3.095765</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_30d_in_currency  &lt;dbl&gt; -10.941119, 38.628612, 7.5294~</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_200d_in_currency &lt;dbl&gt; 37.417789, 4.315348, -27.8561~</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ price_change_percentage_1y_in_currency   &lt;dbl&gt; 2054.5777, 961.0734, 294.2327</span></span></code></pre></div>
 <p>See <code>?current_market</code> for definitions of columns in the resultant tibble.</p>
 <p>The <code>coin_tickers()</code> function allows one to query the current data on all trading pairs of a cryptocurrency from a given exchange. In the example below, we collect such data for Cardano traded at Binance:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cardano_tickers <span class="ot">&lt;-</span> <span class="fu">coin_tickers</span>(</span>
@@ -247,21 +247,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ coin_id                        &lt;chr&gt; &quot;cardano&quot;, &quot;cardano&quot;, &quot;cardano&quot;, &quot;carda~</span></span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ name                           &lt;chr&gt; &quot;Cardano&quot;, &quot;Cardano&quot;, &quot;Cardano&quot;, &quot;Carda~</span></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ base                           &lt;chr&gt; &quot;ADA&quot;, &quot;ADA&quot;, &quot;ADA&quot;, &quot;ADA&quot;, &quot;ADA&quot;, &quot;ADA~</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ target                         &lt;chr&gt; &quot;USDT&quot;, &quot;BUSD&quot;, &quot;BTC&quot;, &quot;ETH&quot;, &quot;EUR&quot;, &quot;B~</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ target                         &lt;chr&gt; &quot;USDT&quot;, &quot;BTC&quot;, &quot;USDC&quot;, &quot;EUR&quot;, &quot;ETH&quot;, &quot;T~</span></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ trust_score                    &lt;chr&gt; &quot;green&quot;, &quot;green&quot;, &quot;green&quot;, &quot;green&quot;, &quot;gr~</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_price                     &lt;dbl&gt; 1.3402e+00, 1.3351e+00, 3.9860e-05, 6.3~</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_fetch_at                  &lt;dttm&gt; 2021-07-12 12:21:00, 2021-07-12 12:28:~</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_traded_at                 &lt;dttm&gt; 2021-07-12 12:21:00, 2021-07-12 12:28:~</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ bid_ask_spread_percentage      &lt;dbl&gt; 0.017380, 0.037249, 0.025088, 0.099053,~</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ trading_volume_24h             &lt;dbl&gt; 92791442.1, 17822171.7, 33707044.3, 379~</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_price_btc                 &lt;dbl&gt; 3.992e-05, 3.974e-05, 3.986e-05, 3.981e~</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_price_eth                 &lt;dbl&gt; 0.00063716, 0.00063387, 0.00063582, 0.0~</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_price_usd                 &lt;dbl&gt; 1.34, 1.34, 1.34, 1.34, 1.34, 1.34, 1.3~</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ trading_volume_24h_btc         &lt;dbl&gt; 3705.000000, 708.211000, 1344.000000, 1~</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ trading_volume_24h_eth         &lt;dbl&gt; 59123.000, 11297.000, 21432.000, 2412.0~</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ trading_volume_24h_usd         &lt;int&gt; 124653217, 23823162, 45195420, 5083973,~</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ cost_to_move_up_2percent_usd   &lt;dbl&gt; 3526168.46, 1007708.58, 932586.55, 6454~</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ cost_to_move_down_2percent_usd &lt;dbl&gt; 3030312.92, 1292716.74, 812390.51, 5491~</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_price                     &lt;dbl&gt; 2.0010e+00, 3.2210e-05, 1.9990e+00, 1.7~</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_fetch_at                  &lt;dttm&gt; 2021-11-01 09:35:33, 2021-11-01 09:36:~</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_traded_at                 &lt;dttm&gt; 2021-11-01 09:35:33, 2021-11-01 09:36:~</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ bid_ask_spread_percentage      &lt;dbl&gt; 0.050659, 0.031172, 0.100756, 0.058275,~</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ trading_volume_24h             &lt;dbl&gt; 145934666.5, 35074897.2, 2012438.9, 513~</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_price_btc                 &lt;dbl&gt; 3.224e-05, 3.221e-05, 3.220e-05, 3.225e~</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_price_eth                 &lt;dbl&gt; 0.00046217, 0.00046170, 0.00046152, 0.0~</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ last_price_usd                 &lt;dbl&gt; 2.00, 2.00, 2.00, 2.00, 2.00, 1.99, 2.0~</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ trading_volume_24h_btc         &lt;dbl&gt; 4705.000000, 1130.000000, 64.807000, 16~</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ trading_volume_24h_eth         &lt;dbl&gt; 67447.00000, 16194.00000, 928.78300, 23~</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ trading_volume_24h_usd         &lt;int&gt; 292236992, 70188027, 4026249, 10296358,~</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ cost_to_move_up_2percent_usd   &lt;dbl&gt; 5192544.77, 835390.95, 600475.96, 24128~</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ cost_to_move_down_2percent_usd &lt;dbl&gt; 2125641.25, 809426.57, 198268.53, 29561~</span></span>
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ is_anomaly                     &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALS~</span></span>
 <span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ is_stale                       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALS~</span></span>
 <span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ trade_url                      &lt;chr&gt; &quot;https://www.binance.com/en/trade/ADA_U~</span></span></code></pre></div>
@@ -271,13 +271,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 7 x 7</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   timestamp           popularity_rank_~ coin_id   name    symbol market_cap_rank</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dttm&gt;                          &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;            &lt;int&gt;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2021-07-12 13:37:49                 1 axie-inf~ Axie I~ AXS                 81</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2021-07-12 13:37:49                 2 kucoin-s~ KuCoin~ KCS                 77</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2021-07-12 13:37:49                 3 smooth-l~ Smooth~ SLP                230</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2021-07-12 13:37:49                 4 illuvium  Illuvi~ ILV                338</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 2021-07-12 13:37:49                 5 shiba-inu Shiba ~ SHIB                29</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 2021-07-12 13:37:49                 6 my-defi-~ My DeF~ DPET               625</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7 2021-07-12 13:37:49                 7 constell~ Conste~ DAG                121</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2021-11-01 09:49:54                 1 ariva     Ariva   ARV                674</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2021-11-01 09:49:54                 2 taboo-to~ Taboo ~ TABOO              304</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2021-11-01 09:49:54                 3 richquack Rich Q~ QUACK              687</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2021-11-01 09:49:54                 4 wagyuswap WagyuS~ WAG                711</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 2021-11-01 09:49:54                 5 shiba-inu Shiba ~ SHIB                 9</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 2021-11-01 09:49:54                 6 unilayer  UniLay~ LAYER              899</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7 2021-11-01 09:49:54                 7 decentra~ Decent~ MANA                55</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 1 more variable: price_btc &lt;dbl&gt;</span></span></code></pre></div>
 
 

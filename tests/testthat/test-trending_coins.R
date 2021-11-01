@@ -1,5 +1,9 @@
 test_that("trending_coins returns correct results", {
-  r <- trending_coins(max_attempts = 1)
+  skip_on_cran()
+  Sys.sleep(10)
+
+  r <- trending_coins()
+  skip_if(is.null(r), "Data could not be retrieved")
 
   expect_s3_class(r, "tbl")
   expect_named(r, c(
